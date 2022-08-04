@@ -11,6 +11,7 @@ export class ShowInspectionComponent implements OnInit {
 
     inspectionList$!: Observable<any[]>;
     inspectionTypesList$!: Observable<any[]>;
+    // for rendering inspection type name from inspection type id (the second column in show inspection table)
     inspectionTypesList: any = [];
 
     // map to display data associated with foreign keys
@@ -23,6 +24,7 @@ export class ShowInspectionComponent implements OnInit {
         // call getInspectionList() function of service
         // assign returned data into inspectionList$
         this.inspectionList$ = this.service.getInspectionList();
+
         this.inspectionTypesList$ = this.service.getInspectionTypesList();
 
         // render inspection type name from inspection type id
@@ -34,6 +36,7 @@ export class ShowInspectionComponent implements OnInit {
             this.inspectionTypesList = data;
 
             for (let i = 0; i < data.length; i++) {
+                // map inspection type id to inspection type name
                 this.inspectionTypesMap.set(this.inspectionTypesList[i].id, this.inspectionTypesList[i].inspectionName);
             }
         })
