@@ -1,27 +1,29 @@
 # InspectionApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+This project is the UI of [Inspection API](https://github.com/khangthinh2401/inspection-api) and was generated with Angular CLI version 14.1.1.
 
-## Development server
+## What is Angular?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+__Angular__ is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations.
 
-## Code scaffolding
+__Angular__ is a complete rewrite from the same team that built AngularJS (an older version of Angular).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+As a platform, Angular includes:
 
-## Build
+- A component-based framework for building scales web apps.
+- A collection of well-integrated  libraries that cover a wide variety of features.
+- A suit of developer tools to help us develop, build, test, and update our code.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Components in Angular
 
-## Running unit tests
+Angular is a component-based web framework. So what really component is in Angular?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+__Components__ are the building blocks that compose an application. A component includes a TypeScript class with a `@component()` decorator, an HTML template, and styles. The `@component()` decorator specifies the following Angular-specific information:
 
-## Running end-to-end tests
+- A CSS selector that defines how the component is used in a template. HTML elements in your template that match this selector becomes instances of the the components.
+- An HTML template that instructs Angular how to render the component.
+- An optional set of CSS styles that define the appearance of the template's HTML elements.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Templates in Angular
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Every component has an HTML template that declares how that component renders. You can define this template either inline or by file path.
