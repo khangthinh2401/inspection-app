@@ -23,6 +23,7 @@ export class ShowInspectionComponent implements OnInit {
         // call getInspectionList() function of service
         // assign returned data into inspectionList$
         this.inspectionList$ = this.service.getInspectionList();
+        this.inspectionTypesList$ = this.service.getInspectionTypesList();
     }
 
 }
