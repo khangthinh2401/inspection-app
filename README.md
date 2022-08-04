@@ -53,3 +53,31 @@ Some remarkable application of this features are:
 
 - **Inserting dynamic text** (by using double curly braces).
 - **Property bindings** -> Set values for properties and attributes of HTML elements and pass values to your application's presentation logic (by using double square brackets).
+
+## Dependency Injection
+
+DI is a useful technique that has been clearly explained in my [Inspection API](https://github.com/khangthinh2401/inspection-api).
+
+DI lets you declare the dependencies of your TypeScript classes without taking care of their instantiation. Instead, Angular handles the instantiation for you. So you can write more testable and flexible code.
+
+Assume that we have a Logger function that will write a message to console window in `logger.service.ts`, and we have another file called `hello.ts` that needs to use Logger function. Instead of newing up, we can access the function by injecting the Logger service into `hello.ts` by doing two steps:
+
+1. Import the Logger function from `logger.service.ts`.
+2. Adding parameter `private logger: Logger` to the constructor of `hello.ts`.
+
+```typescript
+import { Component } from '@angular/core';
+import { Logger } from '../logger.service';
+
+@Component({
+    selector: 'hello',
+    templateUrl: './hello.component.html'
+})
+export class Hello{
+    // call Logger function
+    constructor(private logger: Logger){}
+    clickMe(){
+        console.warn("Message");
+    }
+}
+```
