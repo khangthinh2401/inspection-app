@@ -6,17 +6,25 @@ import { InspectionComponent } from './inspection/inspection.component';
 import { ShowInspectionComponent } from './inspection/show-inspection/show-inspection.component';
 import { AddEditInspectionComponent } from './inspection/add-edit-inspection/add-edit-inspection.component';
 
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { InspectionApiService } from "./inspection-api.service";
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    InspectionComponent,
-    ShowInspectionComponent,
-    AddEditInspectionComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        InspectionComponent,
+        ShowInspectionComponent,
+        AddEditInspectionComponent
+    ],
+    imports: [
+        BrowserModule,
+        // add modules
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [InspectionApiService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
