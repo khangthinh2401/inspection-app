@@ -60,7 +60,7 @@ DI is a useful technique that has been clearly explained in my [Inspection API](
 
 DI lets you declare the dependencies of your TypeScript classes without taking care of their instantiation. Instead, Angular handles the instantiation for you. So you can write more testable and flexible code.
 
-Assume that we have a `logger.service.ts` file with **writeConsole** function that will write a message to console window, and we have another file called `hello.ts` that needs to use writeConsole function. Instead of newing up, we can access the function by injecting the Logger service into `hello.ts` by doing two steps:
+Assume that we have a `logger.service.ts` file with **writeConsole()** function that will write a message to console window, and we have another file called `hello.ts` that needs to use **writeConsole()** function. Instead of newing up, we can access the function by injecting the Logger service into `hello.ts` by doing two steps:
 
 1. Import the Logger function from `logger.service.ts`.
 2. Adding parameter `private logger: Logger` to the constructor of `hello.ts`.
