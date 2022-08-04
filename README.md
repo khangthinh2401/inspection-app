@@ -20,7 +20,24 @@ As a platform, Angular includes:
 
 Angular is a component-based web framework. So what really component is in Angular?
 
-**Components** are the building blocks that compose an application. A component includes a TypeScript class with a `@component()` decorator, an HTML template, and styles. The `@component()` decorator specifies the following Angular-specific information:
+**Components** are the building blocks that compose an application. A component includes a TypeScript class with a `@component()` decorator, an HTML template, and styles.
+
+This is what a minimal Angular component looks like:
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "hello-world",
+  template: "./hello.component.html",
+  styleUrls: [],
+})
+export class HelloWorldComponent {
+  // The code in this class drives the component's behavior.
+}
+```
+
+The `@component()` decorator specifies the following Angular-specific information:
 
 - A CSS selector that defines how the component is used in a template. HTML elements in your template that match this selector becomes instances of the the components.
 - An HTML template that instructs Angular how to render the component.
