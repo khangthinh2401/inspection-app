@@ -27,3 +27,11 @@ __Components__ are the building blocks that compose an application. A component 
 ## Templates in Angular
 
 Every component has an HTML template that declares how that component renders. You can define this template either inline or by file path.
+
+Angular extends HTML with addiotional syntax that lets you insert dynamic values from your component. Angular automatically updates the rendered DOM when your component's state changes. 
+
+Some remarkable application of this features are:
+
+- __Inserting dynamic text__ (by using double curly braces).
+- __Property bindings__ -> Set values for properties and attributes of HTML elements and pass values to your application's presentation logic (by using double square brackets).
+
