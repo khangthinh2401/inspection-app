@@ -26,6 +26,7 @@ export class AddEditInspectionComponent implements OnInit {
         this.inspectionTypesList$ = this.service.getInspectionTypesList();
     }
 
+    // for editing inspection
     @Input() inspection: any;
     id: number = 0;
     status: string = "";
@@ -39,16 +40,18 @@ export class AddEditInspectionComponent implements OnInit {
             comments: this.comments
         }
         this.service.addInspection(inspection).subscribe(res => {
+            // close form
             var closeModalBtn = document.getElementById('add-edit-modal-close');
             if (closeModalBtn) {
                 closeModalBtn.click();
             }
 
+            // show success message
             var showAddSuccess = document.getElementById('add-success-alert');
             if (showAddSuccess) {
                 showAddSuccess.style.display = "block";
             }
-            setTimeout(function () {
+            setTimeout(() => {
                 if (showAddSuccess) {
                     showAddSuccess.style.display = "none";
                 }
@@ -56,6 +59,34 @@ export class AddEditInspectionComponent implements OnInit {
         })
     }
     updateInspection() {
+        var inspection = {
+            id: this.id,
+            inspectionTypeId: this.inspectionTypeId,
+            status: this.status,
+            comments: this.comments
+        }
+        var id: number = this.id;
+        this.service.updateInspection(id, inspection).subscribe(res => {
+            // close form
+            var closeModalBtn = document.getElementById('add-edit-modal-close');
+            if (closeModalBtn) {
+                closeModalBtn.click();
+            }
 
+            // show success message
+            var showUpdateSuccess = document.getElementById('update-success-alert');
+            if (showUpdateSuccess) {
+                showUpdateSuccess.style.display = "block";
+            }
+            setTimeout(() => {
+                if (showUpdateSuccess) {
+                    showUpdateSuccess.style.display = "none";
+                }
+            }, 4000)
+        })
+    }
+
+    deleteInspection() {
+        var id: number = this.id;
     }
 }

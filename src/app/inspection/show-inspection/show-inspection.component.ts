@@ -33,20 +33,44 @@ export class ShowInspectionComponent implements OnInit {
     activateAddEditInspectionComponent: boolean = false;
     inspection: any;
 
+    // open page for adding
     modalAdd() {
         this.inspection = {
             id: 0,
             status: null,
-            components: null,
+            comments: null,
             inspectionTypeId: null
         }
         this.modalTitle = "Add Inspection";
         this.activateAddEditInspectionComponent = true;
     }
 
+    // open page for updating
+    modalUpdate(inspection: any) {
+        this.inspection = inspection;
+        this.modalTitle = "Update inspection";
+        this.activateAddEditInspectionComponent = true;
+    }
+
     modalClose() {
         this.activateAddEditInspectionComponent = false;
         this.inspectionList$ = this.service.getInspectionList();
+    }
+
+    modalDelete(id: number) {
+        this.service.deleteInspection(id).subscribe(res => {
+            // show success message
+            var showAddSuccess = document.getElementById('delete-success-alert');
+            if (showAddSuccess) {
+                showAddSuccess.style.display = "block";
+            }
+            this.inspectionList$ = this.service.getInspectionList();
+            setTimeout(() => {
+                if (showAddSuccess) {
+                    showAddSuccess.style.display = "none";
+                }
+            }, 4000)
+        })
     }
 
     refreshInspectionTypesMap() {
